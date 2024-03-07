@@ -5,17 +5,12 @@ import "dotenv/config.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import questionRoutes from "./modules/questions/question.routes.js";
-import { payment_route } from "./modules/payment/payment.router.js";
 
 const app = express();
 
 const port = 4000;
 
-app.use(cors({
-    origin: ["*"],
-    methods: ["POST", "GET"],
-    credentials: true
-})); //?app.use(cors({ origin: "*" })); allows all requests from anywhere to my server
+app.use(cors()); //?app.use(cors({ origin: "*" })); allows all requests from anywhere to my server
 //Start a connection to DB
 initConnection();
 
@@ -74,7 +69,6 @@ app.use(cookieParser());
 
 app.use(studentRoutes);
 app.use(questionRoutes)
-app.use(payment_route)
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

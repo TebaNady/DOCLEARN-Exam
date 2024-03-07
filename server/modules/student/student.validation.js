@@ -8,7 +8,8 @@ const signUpValidationSchema = Joi.object({
   id: Joi.string().min(14).max(14).required(),
   year: Joi.string().required(),
   university: Joi.string().required(),
-  faculty: Joi.string().required()
+  faculty: Joi.string().required(),
+  checked: Joi.boolean().required()
 });
 
 const signInSchem = Joi.object({
